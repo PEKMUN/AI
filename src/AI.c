@@ -1,25 +1,35 @@
+#include <malloc.h>
+#include <string.h>
+#include <stdio.h>
+#include <ctype.h>
 #include "AI.h"
 
 int stringCompare(char *str1, char *str2)
 {
-	//char *ptr1, *ptr2;
-	//ptr1 = str1;
-	//ptr2 = str2;
-	
-	if(*str1 == *str2)
+	while(*str1 != '\0' || *str2 != '\0')
 	{
-		while(*str1 != '\0' && *str2 != '\0')
+		if(tolower(*str1)  != tolower(*str2))
 		{
-			str1++;
-			str2++;
+			return 0;
 		}
-		return 1;
-	}
-	else 
-		return 0;
+		
+    else 
+    {
+      str1++;
+      str2++;
+    }
+  }
+  return 1;
 }
 
-/*char *speakToAiMachine(char *msg)
+char *speakToAiMachine(char *msg)
 {
-	return NULL;
-}*/
+	if(stringCompare(msg, "hi") == 1 || stringCompare(msg, "hey") == 1 || stringCompare(msg, "hello") == 1 || stringCompare(msg, "greeting") == 1)
+  {
+    return "Hi there! My name is TheMachine. What is yours?";
+  }
+  
+  else 
+    return 0;
+}
+

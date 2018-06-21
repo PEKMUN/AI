@@ -1,8 +1,10 @@
 #include <malloc.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 #include "unity.h"
 #include "AI.h"
+
 
 void setUp(void)
 {
@@ -12,40 +14,38 @@ void tearDown(void)
 {
 }
 
-void test_stringCompare_Given_Hello_and_Hello_expect_1(void)
+/*void test_stringCompare_Given_Hello_and_Hello_expect_1(void)
 {
-    TEST_ASSERT_EQUAL(stringCompare("Hello", "Hello"), 1);
+    TEST_ASSERT_EQUAL(1, stringCompare("Hello", "Hello"));
 }
 
-/*void test_stringCompare_Given_mumbo_jumbo_and_mumbo_jumbo_expect_1(void)
+void test_stringCompare_Given_MAMbo_juMbo_and_maMbo_Jumbo_expect_1(void)
 {
-    TEST_ASSERT_EQUAL(stringCompare("mumbo jumbo", "mumbo jumbo"), 1);
+    TEST_ASSERT_EQUAL(1, stringCompare("MAMbo juMbo", "maMbo Jumbo"));
 }
 
 void test_stringCompare_Given_Rambo_and_Rambu_expect_0(void)
 {
-    TEST_ASSERT_EQUAL(stringCompare("Rambo", "Rambu"), 0);
+    TEST_ASSERT_EQUAL(0, stringCompare("Rambo", "Rambu"));
 }
 
 void test_stringCompare_Given_Hell_and_Hello_expect_0(void)
 {
-    TEST_ASSERT_EQUAL(stringCompare("Hell", "Hello"), 0);
+    TEST_ASSERT_EQUAL(0, stringCompare("Hell", "Hello"));
 }
 
 void test_stringCompare_Given_Hello_and_Hell_expect_0(void)
 {
-    TEST_ASSERT_EQUAL(stringCompare("Hello", "Hell"), 0);
-}
+    TEST_ASSERT_EQUAL(0, stringCompare("Hello", "Hell"));
+}*/
 
-void test_speakToAiMachine_Given_Hello_Hi_Hey_Greetings_expect_Hi_there_my_name_is_themachine_what_is_yours(void)
+void test_speakToAiMachine_Given_Hello_Hi_Hey_Greeting_expect_Hi_there_my_name_is_themachine_what_is_yours(void)
 {
 	char *expectedReply = "Hi there! My name is TheMachine. What is yours?";
 	char *reply = speakToAiMachine("hi");
-	TEST_ASSERT_NOT_NULL(reply);
-	TEST_ASSERT_EQUAL(strlen(reply), strlen(expectedReply));
-	TEST_ASSERT_EQUAL_STRING(reply, expectedReply);
-	free(reply);
-}*/
+	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
+}
+
 
 /*void test_AI_NeedToImplement(void)
 {
