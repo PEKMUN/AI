@@ -14,7 +14,7 @@ void tearDown(void)
 {
 }
 
-/*void test_stringCompare_Given_Hello_and_Hello_expect_1(void)
+void test_stringCompare_Given_Hello_and_Hello_expect_1(void)
 {
     TEST_ASSERT_EQUAL(1, stringCompare("Hello", "Hello"));
 }
@@ -44,12 +44,19 @@ void test_speakToAiMachine_Given_Hello_Hi_Hey_Greeting_expect_Hi_there_my_name_i
 	char *expectedReply = "Hi there! My name is TheMachine. What is yours?";
 	char *reply = speakToAiMachine("hi");
 	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
-}*/
+}
 
 void test_speakToAiMachine_Given_My_name_is_OPM_expect_Nice_to_meet_you_OPM(void)
 {
 	char *expectedReply = "Nice to meet you, OPM";
 	char *reply = speakToAiMachine("My name is OPM");
+	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
+}
+
+void test_speakToAiMachine_Given_Bye_expect_Goodbye_have_a_nice_day(void)
+{
+	char *expectedReply = "Goodbye. Have a nice day";
+	char *reply = speakToAiMachine("Bye");
 	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
 }
 

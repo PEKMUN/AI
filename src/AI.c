@@ -22,17 +22,34 @@ int stringCompare(char *str1, char *str2)
 	return 1;
 }
 
-char *stringContains(char *msg, char *contains)
+int stringContains(char *msg, char *contains)
 {
-	char *checkedStr;
-	
-	checkedStr = strstr(msg, contains);
-	return checkedStr;
+    int i;
+  char *temp, *strptr;
+  temp = malloc(256);
+  
+  strptr = msg;
+  
+  for(i=0;i<10;i++)
+  {
+    temp[i] = *strptr;
+    strptr++;
+  }
+  
+  temp[i] = '\0';
+  
+  if(stringCompare("my name is", temp))
+  {
+    return 1;
+  }
+  
+  else 
+    return 0;
 }
 
 char *extractName(char *msg)
 {
-	int i=12, j=0;
+	int i=11, j=0;
 	char *name;
 	name = malloc(256);
 	
@@ -43,7 +60,7 @@ char *extractName(char *msg)
 		i++;
 	}
 	return name;
-	free(name);
+	//free(name);
 }
 
 char *concatenateString(char *Str1, char *Str2)
@@ -52,10 +69,10 @@ char *concatenateString(char *Str1, char *Str2)
 	strcpy(combined, Str1);
     strcat(combined, Str2);
 	return combined;
-	free(combined);
+	//free(combined);
 }
 
-char *speakToAiMachine(char *msg, char *Str1, char *Str2)
+char *speakToAiMachine(char *msg)
 {
 	if(stringCompare(msg, "hi") == 1 || stringCompare(msg, "hey") == 1 || stringCompare(msg, "hello") == 1 || stringCompare(msg, "greeting") == 1)
 	{
@@ -69,6 +86,14 @@ char *speakToAiMachine(char *msg, char *Str1, char *Str2)
 		name = extractName(msg);
 		reply = concatenateString("Nice to meet you, ", name);
 		return reply;
-		free(reply);
+		//free(reply);
 	}
+  
+  else if(stringCompare(msg, "bye") == 1)
+  {
+    return "Goodbye. Have a nice day";
+  }
+  
+  else
+    return NULL;
 }
