@@ -60,6 +60,20 @@ void test_speakToAiMachine_Given_Bye_expect_Goodbye_have_a_nice_day(void)
 	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
 }
 
+void test_speakToAiMachine_Given_Im_here_expect_NULL(void)
+{
+  char *expectedReply = NULL;
+	char *reply = speakToAiMachine("Im here");
+	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
+}
+
+void test_speakToAiMachine_Given_Hi_Bye_expect_NULL(void)
+{
+	char *expectedReply = NULL;
+	char *reply = speakToAiMachine("Hi, Bye");
+	TEST_ASSERT_EQUAL_STRING(expectedReply, reply);
+}
+
 /*void test_AI_NeedToImplement(void)
 {
     TEST_IGNORE_MESSAGE("Need to Implement AI");

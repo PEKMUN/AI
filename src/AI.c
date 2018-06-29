@@ -80,7 +80,7 @@ char *speakToAiMachine(char *msg)
 	}
   
 	else if(stringContains(msg, "my name is") == 1)
-    {
+  {
 		char *reply, *name;
 		reply = malloc(256);
 		name = extractName(msg);
